@@ -1,0 +1,27 @@
+@import './base.css';
+
+
+.ButtonWhite {
+    display: flex;
+    width: 64px;
+    height: 30px;
+    padding: 13px 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: #EAEAEA;
+}
+
+
+.ButtonBlack {
+    display: flex;
+    width: 64px;
+    height: 30px;
+    padding: 13px 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: #000;
+}
