@@ -52,7 +52,9 @@
 
 #### ==分支管理==
 
-> 减少合并冲突：定期去develop分支同步代码
+> 减少合并冲突：
+>
+> 1. 定期去develop分支同步代码
 >
 > ```shell
 > # 切换到主开发分支
@@ -66,6 +68,16 @@
 > 
 > # 将主分支最新代码合并到当前开发的分支
 > git merge develop
+> ```
+>
+> 2. 定期更新自己的分支
+>
+> ```shell
+> # 切换到当前开发分支
+> git checkout feature/LoginPage
+> 
+> # 拉取远程主开发分支的最新代码并合并
+> git merge origin/develop
 > ```
 >
 > 
