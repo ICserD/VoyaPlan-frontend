@@ -52,6 +52,24 @@
 
 #### ==分支管理==
 
+> 减少合并冲突：定期去develop分支同步代码
+>
+> ```shell
+> # 切换到主开发分支
+> git checkout develop
+> 
+> # 拉取远程仓库最新代码
+> git pull origin develop
+> 
+> # 切换回正在开发的分支, 假设为login界面
+> git checkout feature/LoginPage
+> 
+> # 将主分支最新代码合并到当前开发的分支
+> git merge develop
+> ```
+>
+> 
+
 - **主分支（main/master）**：始终保持可部署的稳定版本，避免直接在该分支上进行开发。
 
 - **开发分支（develop）**：所有新功能和 bug 修复都应提交到开发分支上，开发完成后通过 Pull Request（PR）合并到主分支。
