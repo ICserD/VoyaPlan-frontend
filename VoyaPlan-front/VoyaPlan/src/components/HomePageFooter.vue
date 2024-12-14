@@ -17,7 +17,7 @@
   /* 保留 footer 相关的样式 */
     .footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 0;
     background-color: white;
     border-top: 1px solid #f0f0f0;
   }

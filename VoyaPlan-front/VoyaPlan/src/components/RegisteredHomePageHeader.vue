@@ -14,10 +14,9 @@
           </ul>
       
 
-          <div class="ButtonArea">
-            <button class="ButtonWhite" @click="onLogin">登录</button>
-            <button class="ButtonBlack" @click="onRegister">注册</button>
-          </div>
+          <div class="avatar">
+            <el-avatar size="default" src="https://images.pexels.com/photos/33101/new-wing-emergency-at-the-moment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+         </div>
         </div>
       </header>
 
@@ -28,7 +27,7 @@ import { defineComponent } from 'vue';
 
 
 export default defineComponent({
-  name: 'HomePageHeader',
+  name: 'RegisteredHomePageHeader',
   setup() {
     const onLogin = () => {
       console.log('点击登录');
@@ -91,10 +90,9 @@ export default defineComponent({
     gap: 64px;
   }
 
-  .ButtonArea {
+  .avatar {
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
+    padding: 12px;
   }
 
   .navbar-item {

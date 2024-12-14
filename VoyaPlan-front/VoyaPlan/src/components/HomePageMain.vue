@@ -4,7 +4,7 @@
       <div class="hero-content">
         <h1 class="title">VoyaPlan</h1>
         <p class="subtitle">世界那么大，我想去看看</p>
-        <el-input
+        <!-- <el-input
           v-model="searchInput"
           placeholder="请输入旅行的起点"
           size="large"
@@ -12,7 +12,16 @@
         />
         <el-button type="primary" size="large" class="search-button" @click="onSearch">
           确定
-        </el-button>
+        </el-button> -->
+        <div class="inputArea">
+          <input
+            v-model="searchInput"
+            type="text"
+            placeholder="请输入旅行的起点"
+            class="input-box"
+          />
+          <button class="HomePageInputButton" @click="onSearch">确定</button>
+        </div>
       </div>
     </main>
   </template>
@@ -53,23 +62,79 @@
   }
   
   .title {
-    font-size: 48px;
+    /* font-size: 48px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
+    color: #000;
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 100%; /* 48px */
+    margin-bottom: 18px;
   }
   
   .subtitle {
-    font-size: 20px;
-    margin-bottom: 20px;
+    color: #515151;
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 100%; /* 18px */
+    margin-bottom: 24px;
   }
   
   .input-box {
-    width: 400px;
-    margin-bottom: 20px;
+    width: 560px;
+    height: 36px;
+    border-radius: 12px;
+    background: #EAEAEA;
+    border: none;
+    padding: 0 12px;
   }
   
-  .search-button {
-    width: 100px;
+
+  .inputArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* margin-top: 20px;     */
+  }
+
+  .HomePageInputButton {
+    display: flex;
+    width: 64px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: none;
+    background: #000;
+
+    color: #FFF;
+    text-align: center;
+    font-family: "Istok Web";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 14px */
+
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .HomePageInputButton:hover {
+    background: #333;
+    transform: scale(1.05);
+  }
+
+  .HomePageInputButton:active {
+    transform: scale(0.95);
   }
   </style>
   

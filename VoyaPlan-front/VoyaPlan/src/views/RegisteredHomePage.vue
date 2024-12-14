@@ -1,6 +1,6 @@
 <template>
     <div class="CommonContainer">
-        <HomePageHeader class="Header"/>
+        <RegisteredHomePageHeader class="Header"/>
         <HomePageMain class="Main"/>
         <HomePageFooter class="Footer"/>        
     </div>
@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import HomePageHeader from '../components/HomePageHeader.vue';
+import RegisteredHomePageHeader from '@/components/RegisteredHomePageHeader.vue';
 import HomePageMain from '../components/HomePageMain.vue';
 import HomePageFooter from '../components/HomePageFooter.vue';
 
@@ -24,11 +24,10 @@ defineComponent({
     height: 100vh;
 }
 
-.Header {
-    flex : 1;
-    align-items: center;
+.RegisteredHeader {
+  flex: 1;
+  align-items: center;
 }
-
 
 .Main {
     flex : 14;
