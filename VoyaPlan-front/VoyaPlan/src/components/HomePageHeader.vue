@@ -15,8 +15,8 @@
       
 
           <div class="ButtonArea">
-            <button class="ButtonWhite" @click="onLogin">登录</button>
-            <button class="ButtonBlack" @click="onRegister">注册</button>
+            <button class="ButtonWhite" @click="$emit('login')">登录</button>
+            <button class="ButtonBlack" @click="$emit('register')">注册</button>
           </div>
         </div>
       </header>
@@ -29,20 +29,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'HomePageHeader',
-  setup() {
-    const onLogin = () => {
-      console.log('点击登录');
-    };
-
-    const onRegister = () => {
-      console.log('点击注册');
-    };
-
-    return {
-      onLogin,
-      onRegister,
-    };
-  },
+  emits: ['login', 'register']
 });
 </script>
 

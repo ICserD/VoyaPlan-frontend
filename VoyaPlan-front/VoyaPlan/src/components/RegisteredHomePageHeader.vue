@@ -14,32 +14,51 @@
           </ul>
       
 
-          <div class="avatar">
-            <el-avatar size="default" src="https://images.pexels.com/photos/33101/new-wing-emergency-at-the-moment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-         </div>
+          <div class="avatar-container" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
+            <div class="avatar">
+              <el-avatar size="default" src="https://images.pexels.com/photos/33101/new-wing-emergency-at-the-moment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </div>
+
+            <!-- 浮窗动画 -->
+            <transition name="fade">
+            <!-- 浮窗内容 -->
+             <div class="dropdown" v-if="showDropdown">
+              <ul>
+                <li @click="goToProfile">个人中心</li>
+                <li @click="logout">退出</li>
+              </ul>
+             </div>
+            </transition>
+          </div>
         </div>
       </header>
 
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 
 export default defineComponent({
   name: 'RegisteredHomePageHeader',
   setup() {
-    const onLogin = () => {
-      console.log('点击登录');
+    const router = useRouter();
+    const showDropdown = ref(false);
+
+    const goToProfile = () => {
+      console.log('Go to profile');
     };
 
-    const onRegister = () => {
-      console.log('点击注册');
-    };
+    const logout = () => {
+      localStorage.removeItem('token'); //  清除登录状态
+      router.push('/login');
+    }
 
     return {
-      onLogin,
-      onRegister,
+      showDropdown,
+      goToProfile,
+      logout
     };
   },
 });
@@ -90,11 +109,6 @@ export default defineComponent({
     gap: 64px;
   }
 
-  .avatar {
-    display: flex;
-    padding: 12px;
-  }
-
   .navbar-item {
     /* margin-right: 30px; */
     display: flex;
@@ -135,6 +149,60 @@ export default defineComponent({
 .navbar-link:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+
+/* 头像部分 */
+  .avatar {
+    display: flex;
+    padding: 12px;
+  }
+
+  /* 父容器 */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 浮窗样式 */
+.dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 120px;
+  z-index: 100;
+}
+
+.dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown li {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 12px;
+}
+
+.dropdown li:hover {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+}
+
+/* 动画 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 
 </style>

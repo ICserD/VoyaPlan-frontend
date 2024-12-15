@@ -1,6 +1,6 @@
 <template>
     <div class="CommonContainer">
-        <HomePageHeader class="Header"/>
+        <HomePageHeader class="Header" @login="handleLogin" @register="handleRegister" />
         <HomePageMain class="Main"/>
         <HomePageFooter class="Footer"/>        
     </div>
@@ -11,10 +11,22 @@ import { defineComponent } from 'vue';
 import HomePageHeader from '../components/HomePageHeader.vue';
 import HomePageMain from '../components/HomePageMain.vue';
 import HomePageFooter from '../components/HomePageFooter.vue';
+import { useRouter } from 'vue-router';
 
 defineComponent({
     name: 'HomePage'
 });
+
+const router = useRouter();
+
+const handleLogin = () => {
+  router.push('/login');
+};
+
+const handleRegister = () => {
+  router.push('/register');
+};
+
 </script>
 
 <style scoped>
