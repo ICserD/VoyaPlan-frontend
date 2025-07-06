@@ -1,41 +1,65 @@
-# VoyaPlan旅游规划系统
+# VoyaPlan-frontend
 
 ## 项目简介
 
-一站式旅游规划助手，旨在充分利用现代化技术提高用户旅行规划效率，让用户能充分利用短暂的假期时间，给自己最满意的假期体验！
+VoyaPlan 项目的前端项目。VoyaPlan 是一款开源的智能旅游规划系统，致力于为用户提供一站式的旅游规划服务，涵盖 AI 个性化出行规划、游记分享等功能。
 
-需求文档：https://xqjxrzdxmq8.feishu.cn/wiki/VCZMwHEwQiSbTWkhowHcySKJnah?from=from_copylink
+## 项目文档
+
+- 需求文档：https://xqjxrzdxmq8.feishu.cn/wiki/VCZMwHEwQiSbTWkhowHcySKJnah?from=from_copylink
+- 原型设计文档：https://www.figma.com/design/wlCm2r1bLosW5cNhx55XlT/VoyaPlan?node-id=0-1&p=f
+- Api 接口文档：https://apifox.com/apidoc/shared-e537625c-ff0d-44fa-8cef-eea4b5a5047d
+
+## 项目结构
+```shell
+.
+├── README.md
+└── VoyaPlan-front
+    ├── docs
+    │   └── VoyaPlan-frontend_Installation_Guide.md # 前端安装指南
+    └── VoyaPlan
+        ├── env.d.ts
+        ├── index.html
+        ├── node_modules  # 依赖包
+        │   └── ......
+        ├── package.json
+        ├── package-lock.json
+        ├── public
+        │   └── favicon.ico
+        ├── src  # 源代码
+        │   ├── apiConfig.ts # 接口配置
+        │   ├── App.vue
+        │   ├── assets  # 静态资源
+        │   ├── components # 组件
+        │   ├── main.ts 
+        │   ├── router # 路由
+        │   └── views # 页面
+        ├── tsconfig.app.json
+        ├── tsconfig.json
+        ├── tsconfig.node.json
+        └── vite.config.ts
+```
 
 ## 开发规范
 
 ### 基本规范
 
-#### ==代码风格==
+#### 代码风格
+- 参见 vue 风格指南：https://v2.cn.vuejs.org/v2/style-guide
 
-- **行长度**：每行代码不超过 120 个字符。
-- **变量命名**：
-  - **驼峰命名法**：变量名和函数名使用驼峰命名法（如 `userName`、`getUserInfo`），类名第一个字母也要大写（如UserInfo）。
-  - **常量命名**：常量使用全大写字母，单词之间用下划线分隔（如 `MAX_USERS`）。
-  - **避免使用单字符命名**：如 `i`、`x`，除非是循环计数器或临时变量。
-
-#### ==提交规范==
-
+#### 提交规范
 - **提交信息**：每次提交都应包含清晰、简洁的提交信息，描述该提交的内容和目的，如果是简单的功能，可以不用写详细描述
 
   - 提交信息格式：
 
     ```
     <类型>(<模块>): <简短描述>
-    
-    <详细描述>
     ```
 
     - 示例：
 
       ```
       feat(auth): add login API
-      
-      Added a login API to authenticate users with JWT.
       ```
 
   - 提交类型常见的有：
@@ -50,9 +74,9 @@
 
 - **每个提交尽量只做一件事**：避免大规模的提交，要保证每个提交都能独立工作。
 
-#### ==分支管理==
+#### 分支管理
 
-> 减少合并冲突：
+> 减少合并冲突的好习惯：
 >
 > 1. 定期去develop分支同步代码
 >
@@ -100,47 +124,5 @@
   bugfix/fix-header-position
   ```
 
-#### ==Git 操作规范==
 
 - **避免直接在主分支（`main` 或 `master`）上提交**：所有开发都应该在 `develop` 分支或功能分支上进行。
-- **合并分支时使用 rebase**：在合并分支前，使用 `git rebase` 以保持提交历史清晰。
-- **PR 评审**：每个功能开发完成后，应创建一个 Pull Request（PR），并经过至少一名开发者的评审。
-
-#### 代码质量
-
-- **代码注释**：对于复杂的业务逻辑、算法或无法直观理解的代码段，务必添加简洁明了的注释。
-- **函数/方法长度**：每个函数/方法应尽量保持短小，单一职责。一个函数的长度应控制在 20 行以内。
-- **避免重复代码**：遇到相似的功能逻辑时，考虑提取为独立的函数/方法或模块。
-
-### 编码规范
-
-#### ==前端开发规范==
-
-- **组件化**：前端代码应尽量进行组件化，封装可复用的 UI 组件。
-- **CSS/样式**：
-  - 使用 BEM（块、元素、修饰符）命名法来命名类名。
-  - 样式表分为基础样式、组件样式和布局样式。
-  - 样式尽量使用外部样式文件，避免在模板中直接使用内联样式。
-- **响应式设计**：前端界面要兼容不同设备（PC、平板、手机）屏幕。
-- **使用环境变量**：将不同的开发环境（开发、测试、生产）配置写入环境变量，避免硬编码。
-
-#### 后端开发规范
-
-- **RESTful API 设计**：API 接口应遵循 RESTful 规范，合理使用 HTTP 方法（GET、POST、PUT、DELETE）。
-- **代码结构**：
-  - 控制器（Controller）处理路由和请求响应。
-  - 服务层（Service）包含业务逻辑。
-  - 数据访问层（DAO/Repository）与数据库交互。
-- **错误处理**：所有 API 接口应有统一的错误处理机制，返回适当的 HTTP 状态码和错误消息。
-- **数据库设计**：数据库表结构设计应合理，避免冗余数据和不必要的复杂关系。
-
-#### 测试规范
-
-- **单元测试**：每个功能模块应编写单元测试，确保代码的正确性。
-- **测试覆盖率**：确保重要的功能和核心逻辑有足够的测试覆盖。
-- **UI 测试**：使用自动化测试工具进行前端页面的 UI 测试。
-
-### 文档规范
-
-- **代码文档**：每个函数、类、模块都应该有相应的文档说明，使用 JSDoc（JavaScript）或类似的注释标准。
-- **项目文档**：在项目的 `README.md` 中，提供完整的开发文档、安装说明、项目结构等信息。
