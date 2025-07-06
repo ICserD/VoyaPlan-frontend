@@ -17,7 +17,7 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 ## Project Setup
 
 ```sh
-npm install
+npm install # comfirm you are in the right directory(VoyaPlan-front/VoyaPlan)
 ```
 
 ### Compile and Hot-Reload for Development
